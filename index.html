@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Class Six Paper - Class 6 model question papers.">
+<title>Class Six Paper | Class 6 Model Papers</title>
+<style>
+:root{--navy:#12305a;--blue:#1769aa;--light:#f2f7fc;--ink:#1d2939;--green:#16845b}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:var(--ink);background:var(--light)}
+header{background:linear-gradient(120deg,#12305a,#1769aa);color:white;padding:28px 16px 24px;text-align:center}
+header h1{margin:0 0 8px;font-size:clamp(28px,6vw,42px)}header p{margin:0;opacity:.94}
+.wrap{max-width:1050px;margin:auto;padding:20px 14px 42px}
+.search{display:flex;gap:8px;margin:0 auto 18px;max-width:700px}.search input{flex:1;min-width:0;padding:13px 14px;border:1px solid #c6d3e1;border-radius:10px;font-size:16px}
+button,.btn{border:0;border-radius:9px;padding:12px 15px;background:var(--blue);color:white;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
+.notice{background:#e5f4ec;border:1px solid #b6e0c9;padding:12px 14px;border-radius:10px;margin-bottom:20px;font-size:14px;line-height:1.5}
+h2{color:var(--navy);margin:22px 0 12px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.card{background:white;border:1px solid #dbe5ef;border-radius:14px;padding:18px;box-shadow:0 4px 14px #12305a0b}
+.card h3{margin:0 0 8px;color:var(--navy)}.card p{margin:0 0 14px;color:#526273;font-size:14px}
+.paper{display:none;margin-top:24px;background:white;padding:22px;border:1px solid #dbe5ef;border-radius:12px}.paper.show{display:block}
+.paper h2,.paper h3{text-align:center}.paper ol{line-height:1.9;padding-left:25px}.actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:15px 0}
+.secondary{background:var(--green)}.empty{display:none;padding:18px;background:white;border-radius:10px}
+footer{text-align:center;color:#617184;padding:22px 12px;font-size:13px}
+@media print{header,.search,.notice,.grid,#subjects-title,footer,.actions,.paper-intro{display:none!important}body{background:white}.wrap{padding:0;max-width:none}.paper{display:block!important;border:0;margin:0;padding:0}}
+</style>
+</head>
+<body>
+<header><h1>📚 Class Six Paper</h1><p>Class 6 Model Question Papers — Read, Search and Print</p></header>
+<main class="wrap">
+<div class="search"><input id="searchBox" type="search" placeholder="Search a subject, e.g. Maths or English…" aria-label="Search subjects"><button onclick="filterSubjects()">Search</button></div>
+<div class="notice"><strong>For students:</strong> Select a subject to read a sample model paper. These are practice questions, not official school or board papers. Please check your school's syllabus.</div>
+<h2 id="subjects-title">Class 6 Subjects</h2>
+<div class="grid" id="subjectGrid">
+<article class="card" data-key="english"><h3>English</h3><p>English sample model paper</p><button onclick="openPaper('english')">Read Paper</button></article>
+<article class="card" data-key="mathematics maths math"><h3>Mathematics</h3><p>Class 6 mathematics model paper</p><button onclick="openPaper('maths')">Read Paper</button></article>
+<article class="card" data-key="science"><h3>Science</h3><p>Class 6 science model paper</p><button onclick="openPaper('science')">Read Paper</button></article>
+<article class="card" data-key="social science sst"><h3>Social Science</h3><p>History, Geography and Civics</p><button onclick="openPaper('sst')">Read Paper</button></article>
+<article class="card" data-key="hindi"><h3>Hindi</h3><p>Hindi sample model paper</p><button onclick="openPaper('hindi')">Read Paper</button></article>
+<article class="card" data-key="sanskrit"><h3>Sanskrit</h3><p>Sanskrit sample model paper</p><button onclick="openPaper('sanskrit')">Read Paper</button></article>
+</div>
+<p class="empty" id="noResults">No subject found. Try another search.</p>
+<section class="paper" id="paper"><div class="actions"><button class="secondary" onclick="window.print()">🖨️ Print / Save as PDF</button><button onclick="closePaper()">Back to Subjects</button></div><div id="paperContent"></div><p class="paper-intro"><em>Note: This is a practice sample, not an official exam paper.</em></p></section>
+</main><footer>© <span id="year"></span> Class Six Paper · Helping students learn</footer>
+<script>
+const papers={
+english:{title:"English Model Question Paper",time:"1 Hour",marks:"25 Marks",qs:["Write five sentences about your school.","Write the plural forms: child, book, mango.","Fill in the blank: She ___ a student. (is / are)","Write the opposites of: hot, tall, happy.","Write a short paragraph on “My Best Friend”."]},
+maths:{title:"Mathematics Model Question Paper",time:"1 Hour",marks:"25 Marks",qs:["Add: 348 + 576.","Subtract: 900 − 467.","Multiply: 12 × 8.","A rectangle is 8 cm long and 5 cm wide. Find its perimeter.","Which fraction is greater: 1/2 or 1/4?"]},
+science:{title:"Science Model Question Paper",time:"1 Hour",marks:"25 Marks",qs:["Write two differences between living and non-living things.","Write two functions of plant roots.","Write three uses of water.","What is a balanced diet?","Name three states of matter."]},
+sst:{title:"Social Science Model Question Paper",time:"1 Hour",marks:"25 Marks",qs:["What is a globe?","Name the capital of India.","Write two sources used to study history.","Write two differences between villages and cities.","What is a map used for?"]},
+hindi:{title:"Hindi Model Question Paper",time:"1 Hour",marks:"25 Marks",qs:["Write five sentences about your school in Hindi.","Define संज्ञा and give two examples.","Make a sentence using the word ईमानदारी.","Write opposites of दिन, अच्छा and नया.","Write a short birthday letter to your friend in Hindi."]},
+sanskrit:{title:"Sanskrit Model Question Paper",time:"1 Hour",marks:"25 Marks",qs:["Write the Sanskrit names of five fruits.","Translate into English: रामः पठति।","Write the numbers १ to ५ in Sanskrit.","Complete: मम नाम ___ अस्ति।","Write any two simple Sanskrit greetings."]}
+};
+function openPaper(key){const p=papers[key];document.getElementById('paperContent').innerHTML=`<h2>Class Six Paper</h2><h3>${p.title}</h3><p style="text-align:center">Time: ${p.time} | Maximum Marks: ${p.marks}</p><hr><p><strong>Instructions:</strong> Read all questions carefully and write your answers neatly.</p><ol>${p.qs.map(q=>`<li>${q}</li>`).join('')}</ol>`;document.getElementById('paper').classList.add('show');document.getElementById('paper').scrollIntoView({behavior:'smooth'})}
+function closePaper(){document.getElementById('paper').classList.remove('show')}
+function filterSubjects(){const q=document.getElementById('searchBox').value.trim().toLowerCase();let count=0;document.querySelectorAll('.card').forEach(c=>{const m=c.dataset.key.toLowerCase().includes(q);c.style.display=m?'':'none';if(m)count++});document.getElementById('noResults').style.display=count?'none':'block'}
+document.getElementById('searchBox').addEventListener('keydown',e=>{if(e.key==='Enter')filterSubjects()});document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body></html>
